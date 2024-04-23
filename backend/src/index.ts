@@ -3,6 +3,7 @@ import cors from "cors";
 import { json, urlencoded } from "body-parser";
 import knex from "./db/knex";
 import { Model } from "objection";
+import todos from "./routes/todo";
 
 Model.knex(knex); //this pass knex config into the model instance
 
@@ -20,5 +21,9 @@ app.listen(port, () => {
 app.get("/", (_, res) => {
   res.send("Everything is good!");
 });
+
+const router = express.Router();
+
+app.use("/todos", todos);
 
 export default app;

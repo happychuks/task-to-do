@@ -1,7 +1,7 @@
 import type { Knex } from "knex";
 
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable("todo", (table) => {
+  return knex.schema.createTable("todos", (table) => {
     table
       .uuid("id")
       .primary()
@@ -10,11 +10,11 @@ export async function up(knex: Knex): Promise<void> {
 
     table.string("description").notNullable();
     table.boolean("done").notNullable().defaultTo("false");
-    table.timestamp("createdAt").notNullable();
-    table.timestamp("updatedAt").notNullable();
+    table.timestamp("created_at").notNullable();
+    table.timestamp("updated_at").notNullable();
   });
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.dropTable("todo");
+  return knex.schema.dropTable("todos");
 }

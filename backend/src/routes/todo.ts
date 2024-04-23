@@ -10,14 +10,14 @@ router.post("/", async (req, res) => {
     .insert({ description: todo.description })
     .returning("*");
 
-  res.send({ newTodo });
+  res.send({ todo: newTodo });
 });
 
 //get all todo router
 router.get("/", async (req, res) => {
-  const todo = await Todo.query().select().orderBy("createdAt");
+  const todos = await Todo.query().select().orderBy("created_at");
 
-  res.send({ todo });
+  res.send({ todos });
 });
 
 //get a todo router
@@ -33,7 +33,7 @@ router.patch("/:id", async (req, res) => {
   const id = req.params.id;
   const todo = req.body.todo;
   const updatedTodo = await Todo.query()
-    .update({ description: todo.description })
+    .update({ description: todo.description, done: todo.done })
     .where({ id })
     .returning("*")
     .first();

@@ -1,7 +1,7 @@
 import { Model } from "objection";
 export class Todo extends Model {
   static get tableName() {
-    return "todo";
+    return "todos";
   }
 
   //properties definitions
