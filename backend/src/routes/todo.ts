@@ -20,4 +20,12 @@ router.get("/", async (req, res) => {
   res.send({ todo });
 });
 
+//get a todo router
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const todo = await Todo.query().findById(id).first();
+
+  res.send({ todo });
+});
+
 export default router;
