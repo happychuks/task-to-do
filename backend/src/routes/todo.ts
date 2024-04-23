@@ -41,4 +41,11 @@ router.patch("/:id", async (req, res) => {
   res.send({ todo: updatedTodo });
 });
 
+//delete an existing todo router
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  await Todo.query().deleteById(id);
+  res.send("Todo task deleted successfully");
+});
+
 export default router;
