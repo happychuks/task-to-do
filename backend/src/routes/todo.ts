@@ -13,4 +13,11 @@ router.post("/", async (req, res) => {
   res.send({ newTodo });
 });
 
+//get all todo router
+router.get("/", async (req, res) => {
+  const todo = await Todo.query().select().orderBy("createdAt");
+
+  res.send({ todo });
+});
+
 export default router;
