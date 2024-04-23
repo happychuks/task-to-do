@@ -2,10 +2,10 @@
 
 ### 1. API Development
 
-    -   Create RESTful API to handle:
-    -   Adding a new task (POST)
-    -   Deleting a task (DELETE)
-    -   Fetching all tasks (GET)
+    -   Create RESTful API to handle requests:
+    -   Adding a new task (POST) (DONE)
+    -   Deleting a task (DELETE) (DONE)
+    -   Fetching all tasks (GET) (DONE)
 
 ### 2. Database Integration
 
