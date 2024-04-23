@@ -28,4 +28,17 @@ router.get("/:id", async (req, res) => {
   res.send({ todo });
 });
 
+//update an existing todo router
+router.patch("/:id", async (req, res) => {
+  const id = req.params.id;
+  const todo = req.body.todo;
+  const updatedTodo = await Todo.query()
+    .update({ description: todo.description })
+    .where({ id })
+    .returning("*")
+    .first();
+
+  res.send({ todo: updatedTodo });
+});
+
 export default router;
