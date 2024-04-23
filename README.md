@@ -1,0 +1,1 @@
+A simple To-Do List web application that allows users to add, delete, and view tasks.
