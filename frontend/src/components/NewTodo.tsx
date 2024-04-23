@@ -1,9 +1,23 @@
 import React from "react";
 import { Box, Text, Input, Button } from "@chakra-ui/react";
 import { useState } from "react";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+import { client } from "../utils/client";
 
 const NewTodo: React.FC = () => {
+  const navigate = useNavigate();
   const [description, setDescription] = useState("");
+
+  const mutation = useMutation(
+    (newTodo: { todo: { description: string } }) =>
+      client.post("todos", newTodo),
+    {
+      onSuccess: () => {
+        navigate("/");
+      },
+    }
+  );
   return (
     <Box mt="24">
       <Box w="384px" mx="auto">
@@ -27,6 +41,7 @@ const NewTodo: React.FC = () => {
           bgColor="yellow.default"
           _hover={{ bgColor: "yellow.dark" }}
           _active={{ bgColor: "yellow.light" }}
+          onClick={() => mutation.mutate({ todo: { description } })}
         >
           Add new Task
         </Button>

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex, Text, Icon, IconButton } from "@chakra-ui/react";
 import { FiCheckSquare, FiSquare, FiTrash, FiPlus } from "react-icons/fi";
 import { useQuery, useMutation, useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { client } from "../utils/client";
 
 /* const tempTodos = [
@@ -24,6 +25,7 @@ type Todo = {
   updatedAt: string;
 };
 const Todos: React.FC = () => {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { isLoading, data: todos } = useQuery<Todo[]>("todos", () =>
     client.get("todos").then((res) => res.data.todos)
@@ -99,6 +101,7 @@ const Todos: React.FC = () => {
               _hover={{ bgColor: "yellow.dark" }}
               _active={{ bgColor: "yellow.light" }}
               as={FiPlus}
+              onClick={() => navigate("/new")}
             />
           </Box>
         </Flex>
