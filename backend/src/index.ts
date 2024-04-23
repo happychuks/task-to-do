@@ -1,9 +1,12 @@
 import express from "express";
 import cors from "cors";
 import { json, urlencoded } from "body-parser";
+import knex from "./db/knex";
+import { Model } from "objection";
+
+Model.knex(knex); //this pass knex config into the model instance
 
 const app = express();
-
 const port = 4000;
 
 app.use(cors());
