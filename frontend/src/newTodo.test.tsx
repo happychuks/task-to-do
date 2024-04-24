@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import NewTodo from "./components/newTodo";
+import NewTodo from "./components/NewTodo";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { client } from "./utils/client";
 
