@@ -63,7 +63,7 @@ const Todos: React.FC = () => {
         <Flex alignItems="center" justifyContent="center" pos="relative">
           <Box px="8" pt="6" pb="10" bgColor="gray.light" borderRadius="16px">
             {todos.map((todo) => (
-              <Flex alignItems="center" justifyContent="space-between">
+              <Flex alignItems="center" justifyContent="space-between" p="2">
                 <Icon
                   onClick={() => toggleMutation.mutate(todo)}
                   fontSize="2xl"
@@ -71,9 +71,10 @@ const Todos: React.FC = () => {
                   cursor="pointer"
                   _hover={{ color: "gray.dark" }}
                   as={todo.done ? FiCheckSquare : FiSquare}
+                  mr={5}
                 />
 
-                <Text color="gray.dark" fontSize="xl">
+                <Text color="gray.dark" fontSize="lg">
                   {todo.description}
                 </Text>
 
@@ -83,6 +84,7 @@ const Todos: React.FC = () => {
                   _hover={{ color: "red.700" }}
                   fontSize="xl"
                   cursor="pointer"
+                  ml={5}
                   as={FiTrash}
                 />
               </Flex>
