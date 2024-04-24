@@ -29,9 +29,9 @@ app.get("/", (_, res) => {
 });
 
 // to serve static files from anywhere else
-app.get("*", (req, res) => {
+/* app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/build"));
-});
+}); */
 
 const router = express.Router();
 
