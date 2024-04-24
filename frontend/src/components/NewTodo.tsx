@@ -29,11 +29,11 @@ const NewTodo: React.FC = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           mt="4"
-          name="Description"
+          name="description"
           borderColor="gray.light"
           borderWidth="2px"
           focusBorderColor="gray.light_dark"
-        ></Input>
+        />
 
         <Button
           mt="6"
