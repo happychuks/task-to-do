@@ -46,8 +46,12 @@ Before running the application, ensure you have the following installed:
            PG_USER = <your-username>
            PG_PASSWORD = <your-password>
        ```
-     - After connecting to the database run this script from your database server application to add uuid extension to the database:
-       `create extension if not exists "uuid-ossp";`
+
+- Perform Migrations:
+  1. Initial Migration: run:
+     `npx knex migrate:make create_task_todo_table` or `yarn knex migrate:make create_task_todo_table`
+  2. Apply latest Migration: run: `npm run knex migrate:latest` or `yarn knex migrate:latest`
+  3. Database Extension (optional): After connecting to the database run the `create extension if not exists "uuid-ossp";` script in your database management tool or directly in your database server application
 
 4. Run the application in development mode:
 
@@ -65,10 +69,27 @@ Before running the application, ensure you have the following installed:
 
 5. Access the Application in your web browser at `http://localhost:3000`.
 
+6. API Documentation/Testing:
+
+- API Testing (Postman/Insomnia): `http://localhost:4000/<ROUTE>`
+- Client Testing: `http://localhost:3000/<ROUTE>`
+
+  | Method |   Route    |  Description  |
+  | :----: | :--------: | :-----------: |
+  |  GET   |   /todos   | Get all todos |
+  |  GET   | /todos/:id |  Get a todo   |
+  |  POST  |   /todos   | Create a todo |
+  | PATCH  | /todos/:id | Update a todo |
+  | DELETE | /todos/:id | Delete a todo |
+
 Technologies:
 
 - Front-end: React / Chakra UI
-- Back-end: Node.js/Express routes
+- Back-end: Node.js/Express.js
 - Database: PostgreSQL / Beekeeper Studio
 - ORM: objection, knex
 - Deployment: Heroku
+
+Feel free to contribute to this project.
+
+Happy coding!
